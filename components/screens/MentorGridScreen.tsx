@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { getJson } from "@/lib/client-api";
 import { useToast } from "../ToastProvider";
+import { MentorCard } from "../ui/MentorCard";
 
 interface Mentor {
   id: string;
@@ -14,19 +15,6 @@ interface Mentor {
   profilePhotoUrl: string | null;
   capacity: number;
   allocatedCount: number;
-}
-
-const GRADIENTS = [
-  "linear-gradient(135deg,#6366f1,#312e81)",
-  "linear-gradient(135deg,#0ea5e9,#1d4ed8)",
-  "linear-gradient(135deg,#f472b6,#9d174d)",
-  "linear-gradient(135deg,#22c55e,#166534)",
-  "linear-gradient(135deg,#f59e0b,#b45309)",
-  "linear-gradient(135deg,#a855f7,#6b21a8)",
-];
-
-function initials(name: string) {
-  return name.split(" ").map((w) => w[0]).slice(0, 2).join("");
 }
 
 export function MentorGridScreen() {
@@ -83,38 +71,17 @@ export function MentorGridScreen() {
           const isFull = mentor.allocatedCount >= mentor.capacity;
 
           return (
-            <div
+            <MentorCard
               key={mentor.id}
-              className={`mentor-card${isFull ? " full" : ""}`}
-              style={{ cursor: "default" }}
-            >
-              {/* ── Photo / avatar area ── */}
-              <div className="card-photo">
-                {mentor.profilePhotoUrl ? (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img src={mentor.profilePhotoUrl} alt={`${mentor.fullName} profile photo`} />
-                ) : (
-                  <div
-                    className="card-photo-fallback"
-                    style={{ background: GRADIENTS[index % GRADIENTS.length] }}
-                    aria-hidden="true"
-                  >
-                    {initials(mentor.fullName)}
-                  </div>
-                )}
-                {/* Mentor index — 1-based, always visible */}
-                <div className="card-index" aria-label={`Mentor number ${index + 1}`}>
-                  {index + 1}
-                </div>
-                {isFull && <div className="card-full-overlay">Full</div>}
-              </div>
-
-              {/* ── Info area ── */}
-              <div className="card-info">
-                <h4 className="card-mentor-name">{mentor.fullName}</h4>
-                <div className="card-batch">{mentor.batch ?? "—"}</div>
-              </div>
-            </div>
+              id={mentor.id}
+              fullName={mentor.fullName}
+              batch={mentor.batch}
+              academicInterests={mentor.academicInterests}
+              technicalInterests={mentor.technicalInterests}
+              profilePhotoUrl={mentor.profilePhotoUrl}
+              index={index}
+              isFull={isFull}
+            />
           );
         })}
       </div>
