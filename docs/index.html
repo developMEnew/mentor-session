@@ -53,6 +53,11 @@
   
     /* ===== Generic UI ===== */
     .card{background:#fff;border:1px solid var(--gray-200);border-radius:var(--radius);box-shadow:var(--shadow);padding:24px}
+    .registration-card{max-width:760px;margin:0 auto;padding:clamp(20px,4vw,34px)}
+    .registration-card .form-note{margin-bottom:26px;border-left:4px solid var(--indigo-light);background:var(--indigo-soft);border-radius:10px;padding:14px 16px}
+    .registration-card .form-grid{gap:18px}
+    .registration-card input{min-height:48px}
+    .registration-card .btn-primary{min-height:48px;padding-inline:22px}
     .btn{display:inline-flex;align-items:center;gap:8px;border:none;font-family:inherit;font-size:14px;font-weight:600;padding:11px 20px;border-radius:10px;cursor:pointer;transition:.15s}
     .btn-primary{background:var(--indigo-light);color:#fff}
     .btn-primary:hover{background:var(--indigo)}
@@ -319,28 +324,16 @@
   <section class="screen" id="screen-mentee-reg">
     <div class="container" style="max-width:820px">
       <h2 class="section-title">Mentee Registration</h2>
-      <p class="section-sub">Mentor Session 2026 · Junior Batch (11th) · Registration is <span class="pill pill-green"><span class="dot"></span> Open</span></p>
-      <div class="card">
+      <p class="section-sub">Mentor Session 2026 · Junior Batch (10th) · Registration is <span class="pill pill-green"><span class="dot"></span> Open</span></p>
+      <div class="card registration-card">
         <div class="form-note">
           <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex:none;margin-top:1px"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
-          <span>After registering, you'll choose your <b>top 3 mentors</b>. Preferences are processed <b>First Come, First Served</b> and each mentor can accept a maximum of <b>two mentees</b>.</span>
+          <span>Register with your basic contact details, then choose your <b>top 3 mentors</b>. Preferences are processed <b>First Come, First Served</b>.</span>
         </div>
         <div class="form-grid">
           <div><label>Full Name <span class="req">*</span></label><input type="text" placeholder="e.g., Kavindi Wickramasinghe"></div>
-          <div><label>Student ID <span class="req">*</span></label><input type="text" placeholder="e.g., TG/2025/1234"></div>
-          <div><label>University Email <span class="req">*</span></label><input type="email" placeholder="tg2025xxxx@fot.ruh.ac.lk"></div>
-          <div><label>Contact Number <span class="req">*</span></label><input type="tel" placeholder="07X XXX XXXX"></div>
-          <div>
-            <label>Batch <span class="req">*</span></label>
-            <select><option>11th Batch (Junior)</option><option>10th Batch</option></select>
-          </div>
-          <div>
-            <label>Degree Program <span class="req">*</span></label>
-            <select><option>Select program…</option><option>BICT (Hons)</option><option>BET (Hons)</option><option>BBST (Hons)</option></select>
-          </div>
-          <div class="full"><label>Academic Interests</label><input type="text" placeholder="e.g., Programming, Databases, Networking"></div>
-          <div class="full"><label>Areas Where Guidance Is Required <span class="req">*</span></label><textarea placeholder="e.g., How to balance coursework, choosing a specialization, preparing for the first semester exams…"></textarea></div>
-          <div class="full"><label>Technical Interests</label><input type="text" placeholder="e.g., Web Development, AI/ML, Cyber Security, UI/UX"></div>
+          <div><label>Student Number <span class="req">*</span></label><input type="text" placeholder="e.g., TG/2025/1234"></div>
+          <div class="full"><label>Phone Number <span class="req">*</span></label><input type="tel" placeholder="07X XXX XXXX"></div>
           <div class="full" style="display:flex;gap:12px;align-items:center;justify-content:flex-end;margin-top:4px">
             <button class="btn btn-ghost" onclick="navTo('home')">Cancel</button>
             <button class="btn btn-primary" onclick="toast('Registration submitted! You can now select your mentor preferences.');navTo('prefs')">
