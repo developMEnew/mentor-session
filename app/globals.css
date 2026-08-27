@@ -1276,6 +1276,86 @@ footer b {
   }
 }
 
+/* ===== Mentee registration ===== */
+.reg-page {
+  padding-top: 42px;
+}
+
+.reg-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.reg-kicker {
+  color: var(--primary);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.reg-page > .section-sub {
+  margin-top: 8px;
+  max-width: 620px;
+}
+
+.reg-page > .card {
+  margin-top: 28px;
+  padding: 28px;
+  border: 1px solid var(--border);
+  box-shadow: 0 18px 50px color-mix(in srgb, var(--foreground) 8%, transparent);
+}
+
+.reg-page .form-note {
+  margin-bottom: 26px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--primary) 9%, var(--card));
+  border: 1px solid color-mix(in srgb, var(--primary) 22%, var(--border));
+}
+
+.reg-page .form-grid {
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.reg-page .form-grid > div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.reg-page .form-grid .full {
+  grid-column: 1 / -1;
+}
+
+.reg-page .field-hint {
+  color: var(--muted-foreground);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+@media (max-width: 640px) {
+  .reg-page {
+    padding-top: 24px;
+  }
+  .reg-page > .card {
+    margin-top: 20px;
+    padding: 20px 16px;
+  }
+  .reg-page .form-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .reg-page .form-grid > div.full {
+    grid-column: auto;
+  }
+  .reg-page .form-grid > div:last-child {
+    margin-top: 4px;
+  }
+}
+
 /* ===== Avatar uploader ===== */
 .avatar-uploader {
   display: flex;
